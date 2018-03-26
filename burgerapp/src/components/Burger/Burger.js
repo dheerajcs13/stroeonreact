@@ -2,11 +2,24 @@ import React from 'react';
 import classes from './Burger.css'
 import BurgerIng from './BurgerIng/BurgerIng';
 const Burger = (props) => {
+  let addedIngredient = Object.keys(props.ingredients)
+        .map( igkey => {
+          console.log("props.ingredients[igkey]");
+          console.log( props.ingredients[igkey]);
+          return [...Array( props.ingredients[igkey])].map((_,i)=>{
+            return <BurgerIng key={ i + 1} type={igkey} />;
+          });
+        }).reduce((strt,curel)=>{
+          return strt.concat(curel);
+        },[]);
+    if(addedIngredient.length === 0 ){
+      addedIngredient = <p>Plaese add something</p>
+    }
   return (
     <div className= {classes.Burger}>
-      <BurgerIng type="bread-top" />
-      <BurgerIng type="cheese" />
-      <BurgerIng type="bread-bottom" />
+    <BurgerIng type="bread-top" />
+    {addedIngredient}
+    <BurgerIng type="bread-bottom" />
     </div>
   );
 }
