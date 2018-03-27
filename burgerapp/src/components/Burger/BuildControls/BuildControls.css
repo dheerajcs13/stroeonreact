@@ -8,3 +8,21 @@
   margin: auto;
   padding: 10px 0;
 }
+
+.OrderButton{
+  padding: 15px;
+  background-color: green;
+  color: #FFFFFF;
+  display: block;
+  font: inherit;
+  margin: 0 5px;
+  border: 1px solid #AA6817;
+  cursor: pointer;
+  outline: none;
+  text-transform: capitalize;
+}
+button:hover:disabled{
+  background-color: #AC9980;
+  color: #ccc;
+  cursor: not-allowed;
+}
